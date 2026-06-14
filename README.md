@@ -1,6 +1,6 @@
-# My New Website
+# Cobra Chicken Studios website
 
-This is a starter static website project with HTML, CSS, and JavaScript.
+Basic website project with HTML, CSS, and JavaScript.
 
 ## Files
 
@@ -11,4 +11,3 @@ This is a starter static website project with HTML, CSS, and JavaScript.
 ## Usage
 
 1. Open `index.html` in your browser.
-2. Edit the content and styles to customize the website.
