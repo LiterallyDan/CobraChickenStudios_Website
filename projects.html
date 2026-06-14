@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Updates — Cobra Chicken Studios</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="brand">
+          <div class="logo"></div>
+          <div>
+            <h1>Cobra Chicken Studios</h1>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Updates</a>
+          <a href="games.html">Games</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="projects">
+        <div class="container">
+          <h2>Updates</h2>
+          <p class="muted"> Click a game to view version history and updates! </p>
+
+          <!-- update buttons -->
+          <div class="big-buttons">
+            <!-- Game: Soulfire -->
+            <a class="card-link big-card" href="soulfire.html">
+              <article class="card">
+                <div class="thumb">
+                  <img src="https://placehold.co/900x506?text=Soulfire" alt="Soulfire cover">
+                </div>
+                <h3>Soulfire</h3>
+                <p class="muted">Latest — v1.0.1: Players can no longer throw lantern through boss shield </p>
+              </article>
+            </a>
+
+            <!-- Game: Todd The Technician -->
+            <a class="card-link big-card" href="todd.html">
+              <article class="card">
+                <div class="thumb">
+                  <img src="https://placehold.co/900x506?text=Todd+The+Technician" alt="Todd The Technician cover">
+                </div>
+                <h3>Todd The Technician</h3>
+                <p class="muted">Latest — v1.0.1: Introduced alternate endings and fixed minor bugs</p>
+              </article>
+            </a>
+
+          </div>
+        </div>
+      </section>
+    </main>
+      <div id="videoModal" class="modal hidden" aria-hidden="true">
+        <div class="modal-content">
+          <button id="closeModal" class="modal-close">✕</button>
+          <div id="videoContainer"></div>
+        </div>
+      </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2026 Cobra Chicken Studios.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
