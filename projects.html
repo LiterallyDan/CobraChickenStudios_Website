@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Updates — Cobra Chicken Studios</title>
+    <title>Projects — Cobra Chicken Studios</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -18,7 +18,7 @@
         <nav class="main-nav">
           <a href="index.html">Home</a>
           <a href="updates.html">Updates</a>
-          <a href="games.html">Projects</a>
+          <a href="projects.html">Projects</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
@@ -29,41 +29,50 @@
       <section class="projects">
         <div class="container">
           <h2>Projects</h2>
-          <p class="muted">A collection of current and upcoming projects from Cobra Chicken Studios.</p>
+          <p class="muted">A collection of released projects from Cobra Chicken Studios.</p>
 
-          <!-- GAME LIST -->
+          <div class="filter-bar" aria-label="Project tag filter">
+            <label for="tagFilterSelect" class="filter-label">Filter by tags</label>
+            <select id="tagFilterSelect" class="filter-select" aria-label="Filter projects by tags"></select>
+          </div>
+
+          <!-- PROJECT LIST (please put newest project first) -->
           <div class="project-grid">
-
+            
             <!-- ------------------------------------------------------------------------ -->
             <!-- Todd The Technician Link-->
             <!-- ------------------------------------------------------------------------ -->
             <article class="card">
-              <!-- Game Cover-->
-              <img src="Images/toddLogo.png" alt="Todd The Technician cover">
-              <!-- Title -->
-              <h3>Todd The Technician</h3>
-              <!-- Description -->
-              <p class="muted">A funny puzzle game where you play as a Todd the technician fixing things in a chaotic world warping experience.</p>
-              <!-- Tags -->
-              <p class="tags"><span>Puzzle</span> <span>3D</span> <span>Singleplayer</span></p>
+              <div class="card-body">
+                <!-- Game Cover-->
+                <img src="Images/toddLogo.png" alt="Todd The Technician cover">
+                <!-- Title -->
+                <h3>Todd The Technician</h3>
+                <!-- Description -->
+                <p class="muted">A funny puzzle game where you play as a Todd the technician fixing things in a chaotic world warping experience.</p>
+                <!-- Tags -->
+                <p class="tags"><span>Puzzle</span><span>3D</span><span>Singleplayer</span><span> Game</span></p>
+              </div>
               <!-- Store link -->
-              <p><a class="ghost" target="_blank" href="#">Store Page</a></p>
+              <p><a class="ghost store-link" target="_blank" href="#">Store Page</a></p>
             </article>
 
             <!-- ------------------------------------------------------------------------ -->
             <!-- Soulfire Link-->
             <!-- ------------------------------------------------------------------------ -->
             <article class="card">
-              <!-- Game Cover-->
-              <img src="Images/soulfireLogo.png" alt="Soulfire Cover">
-              <!-- Title -->
-              <h3>Soulfire</h3>
-              <!-- Description -->
-              <p class="muted"> Fast paced adventure-platformer where you play as a moth named Luna who must save her people from the Umbra</p>
-              <!-- Tags -->
-              <p class="tags"><span> Platformer </span> <span> Adventure </span> <span> Singleplayer </span></p>
+              <div class="card-body">
+                <!-- Game Cover-->
+                <img src="Images/soulfireLogo.png" alt="Soulfire Cover">
+                <!-- Title -->
+                <h3>Soulfire</h3>
+                <!-- Description -->
+                <p class="muted"> Fast paced adventure-platformer where you play as a moth named Luna who must save her people from the Umbra.</p>
+                <!-- Tags -->
+                <p class="tags"><span>Platformer</span><span>2D</span><span>Adventure</span><span>Singleplayer</span><span>Game</span> </p>
+              </div>
               <!-- Store link -->
-              <p><a class="ghost" target="_blank" href="https://alexdinobile.itch.io/soulfire">Store Page</a></p>
+              <p><a class="ghost store-link" target="_blank" href="https://alexdinobile.itch.io/soulfire">Store Page</a></p>
             </article>
 
           </div>

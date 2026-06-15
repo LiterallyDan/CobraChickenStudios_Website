@@ -44,8 +44,18 @@ body {
   display: flex;
   gap: 0.75rem;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
+/* Reserve vertical space for the tags area so cards keep consistent height
+   even when tags wrap onto a second line. Tweak `min-height` if you want
+   more or less reserved space. */
+.card .tags {
+  /* Increased to allow two wrapped lines of tag pills so buttons align */
+  min-height: 3.6rem;
+  display: block;
+}
 .logo {
   width: 48px;
   height: 48px;
@@ -67,6 +77,58 @@ body {
   background: transparent;
   transition: background-color 180ms ease, color 180ms ease, transform 120ms ease;
 }
+
+/* Filter bar and select styles */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0 1.25rem;
+  position: relative;
+}
+
+.filter-label {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.filter-select {
+  min-width: 220px;
+  max-width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  padding: 0.35rem 0.9rem;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  cursor: pointer;
+  height: 40px;
+  padding-right: 0.9rem;
+}
+
+.filter-select option {
+  background: #0f172a;
+  color: var(--text);
+}
+
+.filter-select.has-selection {
+  background: linear-gradient(90deg, var(--primary), #60a5fa);
+  color: #021126;
+  border-color: transparent;
+}
+
+.filter-bar::after {
+  display: none;
+}
+
+/* Hide native IE/Edge expand icon */
+.filter-select::-ms-expand { display: none; }
 
 .main-nav a:hover {
   background: rgba(255,255,255,0.03);
@@ -291,6 +353,8 @@ button {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 @media (max-width: 900px) {
@@ -334,9 +398,36 @@ button {
   background: rgba(255,255,255,0.03);
   border-radius: 0.75rem;
   border: 1px solid rgba(148,163,184,0.06);
+  display: flex;
+  flex-direction: column;
 }
 
 .card-link { display: block; color: inherit; text-decoration: none; }
+
+/* Ensure each card fills its grid cell so bottom-anchored elements align */
+.project-grid .card { height: 100%; }
+
+/* Anchor only the store link to sit just above the bottom of the card */
+.card .ghost.store-link { margin-top: auto; margin-bottom: 0.5rem; display: inline-block; }
+
+/* Make the card body expand to push the store link to the bottom */
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+}
+
+/* Reduce spacing for title, description, and tags inside cards */
+.card h3 {
+  margin: 0 0 0.25rem;
+}
+.card .muted {
+  margin: 0 0 0.35rem;
+}
+.card .tags {
+  margin-top: 0.35rem;
+}
 
 .tags span {
   display: inline-block;
@@ -344,8 +435,44 @@ button {
   padding: 0.2rem 0.45rem;
   border-radius: 0.45rem;
   margin-right: 0.4rem;
+  margin-top: 0.5rem;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.filter-btn {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, transform 120ms ease;
+
+/* Reserve vertical space for the tags area so cards keep consistent height
+   even when tags wrap onto a second line. Tweak `min-height` if you want
+   more or less reserved space. */
+.card .tags {
+  min-height: 2.4rem;
+  display: block;
+}
+}
+
+.filter-btn:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg, var(--primary), #60a5fa);
+  color: #021126;
+  border-color: transparent;
 }
 
 .muted { color: var(--muted); }

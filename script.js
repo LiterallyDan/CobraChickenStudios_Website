@@ -60,6 +60,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Tag filter for projects page (single-select dropdown)
+  const tagSelect = document.getElementById('tagFilterSelect');
+  const projectCards = document.querySelectorAll('.project-grid .card');
+  if (tagSelect && projectCards.length) {
+    const tags = new Set();
+    projectCards.forEach((card) => {
+      const spanTags = card.querySelectorAll('.tags span');
+      const cardTags = Array.from(spanTags).map((span) => span.textContent.trim());
+      if (cardTags.length) {
+        card.dataset.tags = cardTags.map((tag) => tag.toLowerCase()).join('|');
+        cardTags.forEach((tag) => tags.add(tag));
+      }
+    });
+
+    const sortedTags = Array.from(tags).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+    tagSelect.innerHTML = `<option value="all" selected>All</option>` + sortedTags
+      .map((tag) => `<option value="${tag.toLowerCase()}">${tag}</option>`)
+      .join('');
+
+    // ensure initial visual state
+    tagSelect.value = 'all';
+    tagSelect.classList.remove('has-selection');
+
+    tagSelect.addEventListener('change', () => {
+      const filter = tagSelect.value;
+      // toggle pill-style when a non-'All' tag is selected
+      if (filter && filter !== 'all') {
+        tagSelect.classList.add('has-selection');
+      } else {
+        tagSelect.classList.remove('has-selection');
+      }
+
+      projectCards.forEach((card) => {
+        const tagsValue = card.dataset.tags || '';
+        card.classList.toggle('hidden', filter !== 'all' && !tagsValue.includes(filter));
+      });
+    });
+  }
+
   // Responsive mobile navigation
   const headerRow = document.querySelector('.site-header .header-row');
   const nav = document.querySelector('.site-header .main-nav');
