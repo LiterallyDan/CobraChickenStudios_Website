@@ -89,6 +89,45 @@ body {
   gap: 1rem;
 }
 
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 0.65rem; }
+.menu-toggle span:nth-child(2) { top: 1.15rem; }
+.menu-toggle span:nth-child(3) { top: 1.65rem; }
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-0.5rem) rotate(-45deg);
+}
+
 .site-header a {
   color: var(--text);
   text-decoration: none;
@@ -97,6 +136,50 @@ body {
 
 .site-header a:hover {
   color: var(--primary);
+}
+
+@media (max-width: 760px) {
+  .header-row {
+    position: relative;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.96);
+    border-radius: 0.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  }
+
+  .site-header nav.open {
+    display: flex;
+  }
+
+  .main-nav {
+    gap: 0;
+  }
+
+  .main-nav a {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    border-radius: 0.75rem;
+    display: block;
+  }
 }
 
 .hero {
@@ -207,7 +290,13 @@ button {
 .project-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
 
 /* Big buttons layout for Updates page */
@@ -238,7 +327,7 @@ button {
 .projects-updates { margin-bottom: 1rem; }
 .project-update { margin-top: 0.6rem; font-size: 0.95rem; }
 
-.card img { width: 100%; height: 160px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 0.5rem; }
+.card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.5rem; margin-bottom: 0.5rem; }
 
 .card {
   padding: 1rem;

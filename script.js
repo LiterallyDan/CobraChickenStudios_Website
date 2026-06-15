@@ -59,4 +59,30 @@ document.addEventListener('DOMContentLoaded', () => {
       mailForm.reset();
     });
   }
+
+  // Responsive mobile navigation
+  const headerRow = document.querySelector('.site-header .header-row');
+  const nav = document.querySelector('.site-header .main-nav');
+  if (headerRow && nav) {
+    const menuToggle = document.createElement('button');
+    menuToggle.type = 'button';
+    menuToggle.className = 'menu-toggle';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Toggle navigation');
+    menuToggle.innerHTML = '<span></span><span></span><span></span>';
+    headerRow.insertBefore(menuToggle, nav);
+
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open', !expanded);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!nav.contains(event.target) && !menuToggle.contains(event.target) && nav.classList.contains('open')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('open');
+      }
+    });
+  }
 });

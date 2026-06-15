@@ -9,16 +9,16 @@
   <body>
     <header class="site-header">
       <div class="container header-row">
-        <div class="brand">
+        <a href="index.html" class="brand">
           <div class="logo"></div>
           <div>
             <h1>Cobra Chicken Studios</h1>
           </div>
-        </div>
+        </a>
         <nav class="main-nav">
           <a href="index.html">Home</a>
-          <a href="projects.html">Updates</a>
-          <a href="games.html">Games</a>
+          <a href="updates.html">Updates</a>
+          <a href="games.html">Projects</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </nav>
@@ -28,43 +28,48 @@
     <main>
       <section class="projects">
         <div class="container">
-          <h2>Updates</h2>
-          <p class="muted"> Click a game to view version history and updates! </p>
+          <h2>Projects</h2>
+          <p class="muted">A collection of current and upcoming projects from Cobra Chicken Studios.</p>
 
-          <!-- update buttons -->
-          <div class="big-buttons">
-            <!-- Game: Soulfire -->
-            <a class="card-link big-card" href="soulfire.html">
-              <article class="card">
-                <div class="thumb">
-                  <img src="https://placehold.co/900x506?text=Soulfire" alt="Soulfire cover">
-                </div>
-                <h3>Soulfire</h3>
-                <p class="muted">Latest — v1.0.1: Players can no longer throw lantern through boss shield </p>
-              </article>
-            </a>
+          <!-- GAME LIST -->
+          <div class="project-grid">
 
-            <!-- Game: Todd The Technician -->
-            <a class="card-link big-card" href="todd.html">
-              <article class="card">
-                <div class="thumb">
-                  <img src="https://placehold.co/900x506?text=Todd+The+Technician" alt="Todd The Technician cover">
-                </div>
-                <h3>Todd The Technician</h3>
-                <p class="muted">Latest — v1.0.1: Introduced alternate endings and fixed minor bugs</p>
-              </article>
-            </a>
+            <!-- ------------------------------------------------------------------------ -->
+            <!-- Todd The Technician Link-->
+            <!-- ------------------------------------------------------------------------ -->
+            <article class="card">
+              <!-- Game Cover-->
+              <img src="Images/toddLogo.png" alt="Todd The Technician cover">
+              <!-- Title -->
+              <h3>Todd The Technician</h3>
+              <!-- Description -->
+              <p class="muted">A funny puzzle game where you play as a Todd the technician fixing things in a chaotic world warping experience.</p>
+              <!-- Tags -->
+              <p class="tags"><span>Puzzle</span> <span>3D</span> <span>Singleplayer</span></p>
+              <!-- Store link -->
+              <p><a class="ghost" target="_blank" href="#">Store Page</a></p>
+            </article>
+
+            <!-- ------------------------------------------------------------------------ -->
+            <!-- Soulfire Link-->
+            <!-- ------------------------------------------------------------------------ -->
+            <article class="card">
+              <!-- Game Cover-->
+              <img src="Images/soulfireLogo.png" alt="Soulfire Cover">
+              <!-- Title -->
+              <h3>Soulfire</h3>
+              <!-- Description -->
+              <p class="muted"> Fast paced adventure-platformer where you play as a moth named Luna who must save her people from the Umbra</p>
+              <!-- Tags -->
+              <p class="tags"><span> Platformer </span> <span> Adventure </span> <span> Singleplayer </span></p>
+              <!-- Store link -->
+              <p><a class="ghost" target="_blank" href="https://alexdinobile.itch.io/soulfire">Store Page</a></p>
+            </article>
 
           </div>
         </div>
       </section>
     </main>
-      <div id="videoModal" class="modal hidden" aria-hidden="true">
-        <div class="modal-content">
-          <button id="closeModal" class="modal-close">✕</button>
-          <div id="videoContainer"></div>
-        </div>
-      </div>
 
     <footer class="site-footer">
       <div class="container">
