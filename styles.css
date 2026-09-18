@@ -59,7 +59,6 @@ body {
 .logo {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg,var(--primary),#60a5fa);
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
@@ -68,6 +67,12 @@ body {
   font-weight: 700;
   font-size: 1.15rem;
   box-shadow: 0 6px 18px rgba(2,17,38,0.45);
+  /* Use the provided image as the logo, fall back to the gradient if image is missing */
+  background-image: url("Images/CobraChickenIcon.png"), linear-gradient(135deg, var(--primary), #60a5fa);
+  background-size: contain, cover;
+  background-position: center;
+  background-repeat: no-repeat, no-repeat;
+  border-radius: 10px;
 }
 
 .main-nav a {
@@ -499,6 +504,26 @@ button {
 
 .socials { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.75rem; }
 .socials a { color: var(--text); text-decoration: none; }
+
+/* Small square icons for social links */
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+.socials a:hover .social-icon {
+  transform: scale(1.06);
+  transition: transform 120ms ease;
+}
+
+/* Remove default focus outline for icon links */
+.socials a:focus,
+.socials a:focus-visible {
+  outline: none;
+}
 
 form#mailForm { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
 form#mailForm input { flex: 1; padding: 0.6rem; border-radius: 0.4rem; border: 1px solid rgba(148,163,184,0.08); background: rgba(255,255,255,0.02); color: var(--text); }
