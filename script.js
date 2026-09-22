@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (actionButton) {
     actionButton.addEventListener('click', () => {
       // On homepage, go to projects page
-      location.href = 'projects.html';
+      location.href = '/projects';
     });
   }
 
