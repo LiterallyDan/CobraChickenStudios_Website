@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact — Cobra Chicken Studios</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="/Images/CobraChickenIcon.png" />
   </head>
   <body>
@@ -42,11 +42,29 @@
           </div>
 
           <div class="info-panel">
-            <h3>Mailing list</h3>
-            <p class="muted">Join for release notes and dev updates.</p>
+            <h3> Bug Reports </h3>
+            <p class="muted"> Found a bug? Fill the form below and we'll open your mail client so you can send the report.</p>
             <form id="mailForm">
-				<input id="email" type="email" placeholder="you@example.com" required=""></input>
-              <button type="submit">Join</button>
+              <label for="reporterEmail">Your email (optional)</label>
+				<input id="reporterEmail" name="reporterEmail" type="email" placeholder="you@example.com"> </input>
+              <div class="two-col">
+                <div>
+                  <label for="bugGame">Game</label>
+                <input id="bugGame" name="bugGame" type="text" placeholder="Which game did you find it in" required=""></input>
+                </div>
+                <div>
+                  <label for="bugLocation">Approx. location</label>
+                <input id="bugLocation" name="bugLocation" type="text" placeholder="Around what part of the game (level / area / menu)" required=""> </input>
+                </div>
+              </div>
+
+              <label for="bugDescription">Bug description</label>
+              <input id="bugDescription" name="bugDescription" rows="4" placeholder="What the bug actually was" required=""></input>
+
+              <label for="bugSteps">How to reproduce (if known)</label>
+              <input id="bugSteps" name="bugSteps" rows="3" placeholder="Step-by-step to reproduce" ></input>
+
+              <button type="submit">Compose Bug Report</button>
             </form>
             <p id="mailStatus" class="muted" aria-live="polite"></p>
           </div>

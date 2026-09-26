@@ -48,14 +48,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mailing list form (mock)
+  // Mailing list / Bug report form handler
   const mailForm = document.getElementById('mailForm');
   const mailStatus = document.getElementById('mailStatus');
   if (mailForm && mailStatus) {
     mailForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value;
-      mailStatus.textContent = `Thanks — we'll email ${email} with updates.`;
+
+      // If the bug report fields exist, compose a mailto: with structured body
+      const bugGameEl = document.getElementById('bugGame');
+      if (bugGameEl) {
+        const reporterEmail = document.getElementById('reporterEmail')?.value || '';
+        const bugGame = bugGameEl.value.trim();
+        const bugLocation = document.getElementById('bugLocation')?.value.trim() || '';
+        const bugDescription = document.getElementById('bugDescription')?.value.trim() || '';
+        const bugSteps = document.getElementById('bugSteps')?.value.trim() || '';
+
+        const to = 'contact@cobrachickenstudio.ca';
+        const subject = `Bug Report: ${bugGame}`;
+        const bodyLines = [
+          `Reporter Email: ${reporterEmail}`,
+          `Game: ${bugGame}`,
+          `Approximate location: ${bugLocation}`,
+          `Description:\n${bugDescription}`,
+          `Reproduction steps:\n${bugSteps}`
+        ];
+        const body = encodeURIComponent(bodyLines.join('\n\n'));
+        const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        mailStatus.textContent = 'Opening your mail client to send the report...';
+        // Open the user's mail client with the prepared message
+        window.location.href = mailto;
+        return;
+      }
+
+      // Fallback: simple mailing list behaviour (older form)
+      const emailEl = document.getElementById('email');
+      const email = emailEl ? emailEl.value : '';
+      mailStatus.textContent = email ? `Thanks — we'll email ${email} with updates.` : 'Thanks!';
       mailForm.reset();
     });
   }
