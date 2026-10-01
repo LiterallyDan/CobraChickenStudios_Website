@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const actionButton = document.getElementById('actionButton');
   if (actionButton) {
     actionButton.addEventListener('click', () => {
-      // On homepage, go to projects page
+      //on homepage go to projects
       location.href = '/projects';
     });
   }
 
-  // Tabs for project lists
+  //tabs for project lists
   const tabs = document.querySelectorAll('.project-tabs .tab');
   if (tabs && tabs.length) {
     tabs.forEach(tab => {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Video thumbnails open modal with iframe
+  //video thumbails
   const modal = document.getElementById('videoModal');
   const videoContainer = document.getElementById('videoContainer');
   const closeModal = document.getElementById('closeModal');
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mailing list / Bug report form handler
+  //bug report form handler
   const mailForm = document.getElementById('mailForm');
   const mailStatus = document.getElementById('mailStatus');
   if (mailForm && mailStatus) {
     mailForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // If the bug report fields exist, compose a mailto: with structured body
+      //if bug reports exist compose with certain fields
       const bugGameEl = document.getElementById('bugGame');
       if (bugGameEl) {
         const reporterEmail = document.getElementById('reporterEmail')?.value || '';
@@ -77,12 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
 
         mailStatus.textContent = 'Opening your mail client to send the report...';
-        // Open the user's mail client with the prepared message
+        //open users mail app with premade email from their bug outline thing
         window.location.href = mailto;
         return;
       }
 
-      // Fallback: simple mailing list behaviour (older form)
+      //simple mail list behaviour (old version)
       const emailEl = document.getElementById('email');
       const email = emailEl ? emailEl.value : '';
       mailStatus.textContent = email ? `Thanks — we'll email ${email} with updates.` : 'Thanks!';
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Tag filter for projects page (single-select dropdown)
+  //tag filter for projects page
   const tagSelect = document.getElementById('tagFilterSelect');
   const projectCards = document.querySelectorAll('.project-grid .card');
   if (tagSelect && projectCards.length) {
@@ -109,13 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
       .map((tag) => `<option value="${tag.toLowerCase()}">${tag}</option>`)
       .join('');
 
-    // ensure initial visual state
+    //initial visual state 
     tagSelect.value = 'all';
     tagSelect.classList.remove('has-selection');
 
     tagSelect.addEventListener('change', () => {
       const filter = tagSelect.value;
-      // toggle pill-style when a non-'All' tag is selected
+      //toggle pill selection when all is selected
       if (filter && filter !== 'all') {
         tagSelect.classList.add('has-selection');
       } else {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Responsive mobile navigation
+  //mobile responsiveness
   const headerRow = document.querySelector('.site-header .header-row');
   const nav = document.querySelector('.site-header .main-nav');
   if (headerRow && nav) {
